@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerView" customModule="APOD" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="qTm-Tm-KWn" id="B1Z-y2-lad"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="238"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="qTm-Tm-KWn">
+                    <rect key="frame" x="0.0" y="42" width="434" height="162"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z74-sn-IYn">
+                    <rect key="frame" x="365" y="-2" width="59" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="ovg-cM-q0j"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="75z-ak-gmC"/>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="top" secondItem="z74-sn-IYn" secondAttribute="bottom" constant="13" id="82W-yD-nei"/>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JVX-ro-pDi"/>
+                <constraint firstAttribute="trailing" secondItem="z74-sn-IYn" secondAttribute="trailing" constant="10" id="lzS-FW-p9y"/>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x5U-f7-6fw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="168.11594202898553" y="213.61607142857142"/>
+        </view>
+    </objects>
+</document>

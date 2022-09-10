@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FavouriteTableViewCell" customModule="APOD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-yR-ST5">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="CIz-O9-AdR"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYP-Ez-Ukh">
+                    <rect key="frame" x="15" y="59" width="384" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="FavouriteTableViewCell"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RYP-Ez-Ukh" secondAttribute="trailing" constant="15" id="6O9-wp-uD2"/>
+                <constraint firstItem="RYP-Ez-Ukh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="FjG-oW-haP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GeM-yR-ST5" secondAttribute="trailing" id="REI-Lp-Jey"/>
+                <constraint firstItem="RYP-Ez-Ukh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="mDC-hI-nIC"/>
+                <constraint firstItem="GeM-yR-ST5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="250" id="pMV-QB-aYj"/>
+                <constraint firstItem="GeM-yR-ST5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tQX-j0-cIe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GeM-yR-ST5" secondAttribute="bottom" id="xVz-2z-TaC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="podImageView" destination="GeM-yR-ST5" id="AHX-O8-tuD"/>
+                <outlet property="titleLable" destination="RYP-Ez-Ukh" id="OPQ-u6-nAD"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="-129.57589285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
