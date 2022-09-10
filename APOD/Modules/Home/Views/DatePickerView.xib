@@ -22,11 +22,19 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z74-sn-IYn">
-                    <rect key="frame" x="365" y="-2" width="59" height="31"/>
+                    <rect key="frame" x="365" y="6" width="59" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Done"/>
                     <connections>
                         <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="ovg-cM-q0j"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhv-Uk-VDw">
+                    <rect key="frame" x="10" y="6" width="69" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="VAo-Lw-ne2"/>
                     </connections>
                 </button>
             </subviews>
@@ -34,8 +42,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="qTm-Tm-KWn" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="75z-ak-gmC"/>
-                <constraint firstItem="qTm-Tm-KWn" firstAttribute="top" secondItem="z74-sn-IYn" secondAttribute="bottom" constant="13" id="82W-yD-nei"/>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="top" secondItem="z74-sn-IYn" secondAttribute="bottom" constant="5" id="82W-yD-nei"/>
                 <constraint firstItem="qTm-Tm-KWn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JVX-ro-pDi"/>
+                <constraint firstItem="Uhv-Uk-VDw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="UPi-0R-JqM"/>
+                <constraint firstItem="qTm-Tm-KWn" firstAttribute="top" secondItem="Uhv-Uk-VDw" secondAttribute="bottom" constant="5" id="dQM-96-sXh"/>
                 <constraint firstAttribute="trailing" secondItem="z74-sn-IYn" secondAttribute="trailing" constant="10" id="lzS-FW-p9y"/>
                 <constraint firstItem="qTm-Tm-KWn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x5U-f7-6fw"/>
             </constraints>

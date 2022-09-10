@@ -7,11 +7,6 @@
 
 import Foundation
 
-
-let appTitle = "APOD"
-let homeScreenTitle = "Home screen title"
-let pictureKey = "picture"
-
 struct NetworkConstants {
     static let baseUrl = "https://api.nasa.gov/planetary/apod"
     static let apiKey = "Lxbac1pBaIQ2lmEh5vl7282kos9aQeLfcWJcu9Hl"
@@ -27,3 +22,18 @@ struct NavigationConstants{
     static let calendarIcon = "calendar"
 }
 
+struct StorageConstants {
+    static let recentPictureEntityName = "RecentPicture"
+    static let dateKey = "date"
+    static let explanationKey = "explanation"
+    static let hdurlKey = "hdurl"
+    static let titleKey = "title"
+    static let mediaTypeKey = "mediaType"
+    static let imageDataKey = "imageData"
+}
+
+struct LocalizeConstants {
+    static let homeScreenTitle = "Home screen title"
+    static let couldNotDelete = "Could not delete."
+    static let couldNotFetch = "Could not delete."
+}

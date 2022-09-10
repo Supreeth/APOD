@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupNavigationbar() {
-        self.title = NSLocalizedString(homeScreenTitle, comment: appTitle)
+        self.title = NSLocalizedString(LocalizeConstants.homeScreenTitle, comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: NavigationConstants.favouriteIcon),
             style: .plain,

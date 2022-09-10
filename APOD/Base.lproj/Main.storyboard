@@ -26,19 +26,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMR-Ef-xBn">
-                                        <rect key="frame" x="21" y="331" width="393" height="0.0"/>
+                                        <rect key="frame" x="21" y="331" width="372" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPP-JA-ynj">
-                                        <rect key="frame" x="21" y="352.5" width="393" height="0.0"/>
+                                        <rect key="frame" x="21" y="352.5" width="372" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kol-LE-aap">
-                                        <rect key="frame" x="21" y="374" width="393" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kol-LE-aap">
+                                        <rect key="frame" x="21" y="374" width="372" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                             <constraint firstItem="a8K-zf-8RE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RzR-RA-75H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a8K-zf-8RE" secondAttribute="trailing" id="b85-Fj-Viq"/>
                             <constraint firstItem="a8K-zf-8RE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bhb-ub-Gpe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NMR-Ef-xBn" secondAttribute="trailing" id="jHg-7r-RR5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NMR-Ef-xBn" secondAttribute="trailing" constant="21" id="jHg-7r-RR5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Sv-DK-uPP" secondAttribute="bottom" id="kfo-N3-Cmz"/>
                             <constraint firstItem="a8K-zf-8RE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="r8G-K7-leK"/>
                         </constraints>
@@ -157,7 +157,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t69-WU-7Fy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t69-WU-7Fy">
                                         <rect key="frame" x="21" y="374" width="372" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -205,11 +205,11 @@
             </objects>
             <point key="canvasLocation" x="2465" y="1041"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="kR8-po-m2U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Q9-Vl-PHg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GzE-dp-HAH"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="GzE-dp-HAH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pch-fa-qXK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -243,11 +243,11 @@
             </objects>
             <point key="canvasLocation" x="495.6521739130435" y="93.75"/>
         </scene>
-        <!--Item-->
+        <!--Favourites-->
         <scene sceneID="yrV-YW-eh9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z3R-cR-zSJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="QYk-JW-OuO"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="hand.thumbsup" catalog="system" selectedImage="hand.thumbsup.fill" id="QYk-JW-OuO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2lK-rg-wRq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -264,6 +264,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

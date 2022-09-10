@@ -42,6 +42,10 @@ class DatePickerView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        isHidden = true
+    }
+    
     @IBAction func doneButtonTapped(_ sender: Any) {
         isHidden = true
         delegate?.doneButtonTapped(date: datePicker.date)

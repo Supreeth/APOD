@@ -11,13 +11,59 @@ import CoreData
 
 struct Storage {
     
-    func storePicture(_ picture: Picture) {
-        do {
-            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: picture, requiringSecureCoding: false)
-            UserDefaults.standard.set(encodedData, forKey: pictureKey)
-        } catch {
-            debugPrint("Could not save data. Reason: \(error)")
+    func deleteEntries(for entityName: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
         }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print("\(NSLocalizedString(LocalizeConstants.couldNotDelete, comment: "")) \(error), \(error.userInfo)")
+        }
+    }
+    
+    func storeRecentPicture(_ picture: Picture, imagData: Data) {
+        deleteEntries(for: StorageConstants.recentPictureEntityName)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: StorageConstants.recentPictureEntityName, in: managedContext) else {
+            return
+        }
+        let pod = NSManagedObject(entity: entity,insertInto: managedContext)
+        pod.setValue(picture.date, forKey: StorageConstants.dateKey)
+        pod.setValue(picture.explanation, forKey: StorageConstants.explanationKey)
+        pod.setValue(picture.hdurl, forKey: StorageConstants.hdurlKey)
+        pod.setValue(picture.title, forKey: StorageConstants.titleKey)
+        pod.setValue(picture.mediaType, forKey: StorageConstants.mediaTypeKey)
+        pod.setValue(imagData, forKey: StorageConstants.imageDataKey)
+        appDelegate.saveContext()
+    }
+    
+    func fetchRecentPicture() -> RecentPicture? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: StorageConstants.recentPictureEntityName)
+        
+        do {
+            let recentPicture = try (managedContext.fetch(fetchRequest) as? [RecentPicture])?.first
+            return recentPicture
+        } catch let error as NSError {
+            print("\(NSLocalizedString(LocalizeConstants.couldNotFetch, comment: "")) \(error), \(error.userInfo)")
+        }
+        
+        return nil
     }
     
     func addToFavourites(_ picture:Picture) {
@@ -30,27 +76,10 @@ struct Storage {
             return
         }
         let pod = NSManagedObject(entity: entity,insertInto: managedContext)
-        pod.setValue(picture.date, forKey: "date")
-        pod.setValue(picture.explanation, forKey: "explanation")
-        pod.setValue(picture.hdurl, forKey: "hdurl")
-        pod.setValue(picture.title, forKey: "title")
-        appDelegate.saveContext()
-    }
-    
-    func addToFavourites(_ picture:POD) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "POD", in: managedContext) else {
-            return
-        }
-        let pod = NSManagedObject(entity: entity,insertInto: managedContext)
-        pod.setValue(picture.date, forKey: "date")
-        pod.setValue(picture.explanation, forKey: "explanation")
-        pod.setValue(picture.hdurl, forKey: "hdurl")
-        pod.setValue(picture.title, forKey: "title")
+        pod.setValue(picture.date, forKey: StorageConstants.dateKey)
+        pod.setValue(picture.explanation, forKey: StorageConstants.explanationKey)
+        pod.setValue(picture.hdurl, forKey: StorageConstants.hdurlKey)
+        pod.setValue(picture.title, forKey: StorageConstants.titleKey)
         appDelegate.saveContext()
     }
     
@@ -94,23 +123,6 @@ struct Storage {
     
     func isFavourite(_ picture:Picture) -> Bool {
         let query = picture.hdurl
-        let request: NSFetchRequest<POD> = POD.fetchRequest()
-        request.predicate = NSPredicate(format: "hdurl == %@", query ?? "")
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        guard let result = try? managedContext.fetch(request) else {
-            return false
-        }
-         
-        return result.count > 0 ? true : false
-    }
-    
-    func isFavourite(_ pod:POD) -> Bool {
-        let query = pod.hdurl
         let request: NSFetchRequest<POD> = POD.fetchRequest()
         request.predicate = NSPredicate(format: "hdurl == %@", query ?? "")
         

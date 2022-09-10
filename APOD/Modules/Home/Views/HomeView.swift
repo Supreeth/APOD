@@ -25,7 +25,15 @@ class HomeView: UIView {
     func setup() {
         datePickerView.delegate = self
         if !Reachability.sharedInstance.isNetworkAvailable() {
-            imageView.image = UIImage.init(fileName: FileKeyConstants.pictureKey)
+            guard let picture = Storage().fetchRecentPicture() else {
+                return
+            }
+            titleLabel.text = picture.title
+            dateLabel.text = picture.date
+            explanationlabel.text = picture.explanation
+            if let imageData = picture.imageData {
+                imageView.image = UIImage(data: imageData)
+            }
         }
     }
 }
@@ -45,9 +53,14 @@ extension HomeView: HomeViewProtocol{
     
     func fetchPictureDidEnd(picture: Picture) {
         if let url = picture.hdurl {
-            imageView.setImage(url: url) { image in
+            imageView.setImage(url: url, onSuccess:  { image in
                 image.save(fileName: FileKeyConstants.pictureKey)
-            }
+                if let imageData =  image.jpegData(compressionQuality: 1.0) {
+                    DispatchQueue.main.async {
+                        Storage().storeRecentPicture(picture, imagData: imageData)
+                    }
+                }
+            })
         }
         dateLabel.text = picture.date
         titleLabel.text = picture.title
