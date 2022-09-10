@@ -64,6 +64,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: Extension HomeViewDelegate
 extension HomeViewController: HomeViewDelegate {
     func fetchPicture(for date: Date) {
         presenter?.fetchPicture(for: date)
@@ -79,6 +80,7 @@ extension HomeViewController: HomeViewDelegate {
     }
 }
 
+// MARK: Extension HomePresenterDelegate
 extension HomeViewController: HomePresenterDelegate {
     func isFavourite() {
         navigationItem.rightBarButtonItem?.image = UIImage(systemName: NavigationConstants.favouriteFillIcon)
@@ -86,5 +88,9 @@ extension HomeViewController: HomePresenterDelegate {
     
     func isNotFavourite() {
         navigationItem.rightBarButtonItem?.image = UIImage(systemName: NavigationConstants.favouriteIcon)
+    }
+    
+    func imageDidLoad(with imageData: Data) {
+        presenter?.imageData = imageData
     }
 }

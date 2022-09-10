@@ -9,7 +9,7 @@ import Foundation
 
 struct NetworkConstants {
     static let baseUrl = "https://api.nasa.gov/planetary/apod"
-    static let apiKey = "Lxbac1pBaIQ2lmEh5vl7282kos9aQeLfcWJcu9Hl"
+    static let apiKeyValue = "Lxbac1pBaIQ2lmEh5vl7282kos9aQeLfcWJcu9Hl"
 }
 
 struct FileKeyConstants {
@@ -36,4 +36,10 @@ struct LocalizeConstants {
     static let homeScreenTitle = "Home screen title"
     static let couldNotDelete = "Could not delete."
     static let couldNotFetch = "Could not delete."
+}
+
+
+struct ServiceConstants{
+    static let apiKey = "api_key"
+    static let dateKey = "date"
 }

@@ -19,15 +19,19 @@ class FavouriteTableViewCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     private func setItem(_ item: POD) {
         titleLable.text = item.title
-        if let url = item.hdurl {
-            podImageView.setImage(url: url)
+        
+        if let image = FileHelper().getImage(with: item.title ?? "") {
+            podImageView.image = image
+        } else if let url = item.hdurl {
+            podImageView.setImage(url: url, onSuccess:  { image in
+                if let imageData =  image.jpegData(compressionQuality: 1.0) {
+                    DispatchQueue.main.async {
+                        FileHelper().save(fileName: item.title ?? "",imageData: imageData)
+                    }
+                }
+            })
         }
     }
     
@@ -36,5 +40,4 @@ class FavouriteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

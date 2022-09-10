@@ -20,10 +20,17 @@ extension FavouritesDetailView: FavouritesDetailProtocol {
         dateLabel.text = pod.date
         titleLabel.text = pod.title
         explanationlabel.text = pod.explanation
-        if let url = pod.hdurl {
-            imageView.setImage(url: url) { image in
-                image.save(fileName: FileKeyConstants.pictureKey)
-            }
+        
+        if let image = FileHelper().getImage(with: pod.title ?? "") {
+            imageView.image = image
+        } else if let url = pod.hdurl {
+            imageView.setImage(url: url, onSuccess:  { image in
+                if let imageData =  image.jpegData(compressionQuality: 1.0) {
+                    DispatchQueue.main.async {
+                        FileHelper().save(fileName: pod.title ?? "",imageData: imageData)
+                    }
+                }
+            })
         }
     }
 }

@@ -18,6 +18,7 @@ class DatePickerView: UIView {
     var contentView:UIView?
     weak var delegate: DatePickerDelegate?
     
+    // MARK: Init Methods
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -28,7 +29,8 @@ class DatePickerView: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    // MARK: Private Methods
+    private func commonInit() {
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         self.addSubview(view)
@@ -36,12 +38,13 @@ class DatePickerView: UIView {
         datePicker.maximumDate = Date()
     }
     
-    func loadViewFromNib() -> UIView? {
+    private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: identifier, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    // MARK: Action DatePickerDelegate
     @IBAction func cancelButtonTapped(_ sender: Any) {
         isHidden = true
     }

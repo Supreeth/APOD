@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewDelegate:NSObjectProtocol {
     func fetchPicture(for date: Date)
     func fetchPictureDidEnd(picture: Picture)
+    func imageDidLoad(with imageData: Data)
 }
 
 class HomeView: UIView {
@@ -22,6 +23,7 @@ class HomeView: UIView {
     weak var delegate: HomeViewDelegate?
     private var myActivityIndicator: UIActivityIndicatorView?
     
+    // MARK: Setup Methods
     func setup() {
         datePickerView.delegate = self
         if !Reachability.sharedInstance.isNetworkAvailable() {
@@ -38,6 +40,7 @@ class HomeView: UIView {
     }
 }
 
+// MARK: Extension HomeViewProtocol
 extension HomeView: HomeViewProtocol{
     
     func fetchPictureWillStart() {
@@ -54,10 +57,10 @@ extension HomeView: HomeViewProtocol{
     func fetchPictureDidEnd(picture: Picture) {
         if let url = picture.hdurl {
             imageView.setImage(url: url, onSuccess:  { image in
-                image.save(fileName: FileKeyConstants.pictureKey)
                 if let imageData =  image.jpegData(compressionQuality: 1.0) {
                     DispatchQueue.main.async {
                         Storage().storeRecentPicture(picture, imagData: imageData)
+                        self.delegate?.imageDidLoad(with: imageData)
                     }
                 }
             })
@@ -71,6 +74,7 @@ extension HomeView: HomeViewProtocol{
     }
 }
 
+// MARK: Extension DatePickerDelegate
 extension HomeView: DatePickerDelegate{
     func doneButtonTapped(date: Date) {
         delegate?.fetchPicture(for: date)

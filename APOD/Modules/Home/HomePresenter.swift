@@ -24,16 +24,33 @@ class HomePresenter {
     weak private var homeViewProtocol: HomeViewProtocol?
     weak var delegate: HomePresenterDelegate?
     var picture: Picture? = nil
+    var imageData: Data? = nil
     
     init(service: HomeService = HomeService()) {
         self.service = service
     }
     
+    // MARK: - Private Methods
+    func getRequestUrl(for date:Date?) -> URL? {
+        var urlComponents = URLComponents(string: NetworkConstants.baseUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: ServiceConstants.apiKey, value: NetworkConstants.apiKeyValue),
+        ]
+        
+        if let date = date {
+            urlComponents?.queryItems?.append(URLQueryItem(name: ServiceConstants.dateKey, value: date.dateString()))
+        }
+        return urlComponents?.url
+    }
+    
+    
+    // MARK: - Public Methods
     func attachView(view: HomeViewProtocol) {
         homeViewProtocol = view
     }
     
     func fetchPicture(for date: Date? = nil) {
+        imageData = nil
         homeViewProtocol?.fetchPictureWillStart()
         service.fetchPicture(for: getRequestUrl(for: date)) { [weak self] picture in
             self?.picture = picture
@@ -41,18 +58,6 @@ class HomePresenter {
         } onFailure: { errorMessage in
             
         }
-    }
-    
-    func getRequestUrl(for date:Date?) -> URL? {
-        var urlComponents = URLComponents(string: NetworkConstants.baseUrl)
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "api_key", value: NetworkConstants.apiKey),
-        ]
-        
-        if let date = date {
-            urlComponents?.queryItems?.append(URLQueryItem(name: "date", value: date.dateString()))
-        }
-        return urlComponents?.url
     }
     
     func isFavourite() -> Bool{
@@ -78,7 +83,9 @@ class HomePresenter {
             Storage().deleteFromFavourites(picture?.hdurl)
         default:
             delegate?.isFavourite()
+            
             if let picture = picture {
+                FileHelper().save(fileName: picture.title ?? "",imageData: imageData)
                 Storage().addToFavourites(picture)
             }
         }

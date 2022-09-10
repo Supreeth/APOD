@@ -28,12 +28,12 @@
 		902F030128CB146D006BB929 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030028CB146D006BB929 /* ImageDownloadManager.swift */; };
 		902F030328CB1486006BB929 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030228CB1486006BB929 /* ImageDownloader.swift */; };
 		902F030528CB1BEE006BB929 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030428CB1BEE006BB929 /* Storage.swift */; };
-		902F030828CB23F7006BB929 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030728CB23F7006BB929 /* ImageExtension.swift */; };
 		902F030A28CB39FB006BB929 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030928CB39FB006BB929 /* Reachability.swift */; };
 		902F030C28CB5260006BB929 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030B28CB5260006BB929 /* DatePickerView.swift */; };
 		902F030E28CB52D4006BB929 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902F030D28CB52D4006BB929 /* DatePickerView.xib */; };
 		902F031028CB6A9E006BB929 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902F030F28CB6A9E006BB929 /* DateExtension.swift */; };
 		902F031628CB9F4E006BB929 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 902F031428CB9F4E006BB929 /* Model.xcdatamodeld */; };
+		9064CC6F28CCBACD0074E698 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064CC6E28CCBACD0074E698 /* FileHelper.swift */; };
 		9095F8D128CBB6C90011DFC5 /* FavouritesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095F8D028CBB6C90011DFC5 /* FavouritesAdapter.swift */; };
 		9095F8D328CBB7500011DFC5 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095F8D228CBB7500011DFC5 /* FavouriteTableViewCell.swift */; };
 		9095F8D528CBB79D0011DFC5 /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9095F8D428CBB79D0011DFC5 /* FavouriteTableViewCell.xib */; };
@@ -87,12 +87,12 @@
 		902F030028CB146D006BB929 /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
 		902F030228CB1486006BB929 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		902F030428CB1BEE006BB929 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		902F030728CB23F7006BB929 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		902F030928CB39FB006BB929 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		902F030B28CB5260006BB929 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		902F030D28CB52D4006BB929 /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
 		902F030F28CB6A9E006BB929 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		902F031528CB9F4E006BB929 /* Favourites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourites.xcdatamodel; sourceTree = "<group>"; };
+		9064CC6E28CCBACD0074E698 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		9095F8D028CBB6C90011DFC5 /* FavouritesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesAdapter.swift; sourceTree = "<group>"; };
 		9095F8D228CBB7500011DFC5 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		9095F8D428CBB79D0011DFC5 /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
@@ -258,6 +258,7 @@
 				902F02FD28CB13CD006BB929 /* ImageDownloader */,
 				902F02F628CA6288006BB929 /* NetworkManager.swift */,
 				902F030928CB39FB006BB929 /* Reachability.swift */,
+				9064CC6E28CCBACD0074E698 /* FileHelper.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -275,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				902F02FE28CB1454006BB929 /* ImageViewExtension.swift */,
-				902F030728CB23F7006BB929 /* ImageExtension.swift */,
 				902F030F28CB6A9E006BB929 /* DateExtension.swift */,
 			);
 			path = Extensions;
@@ -460,13 +460,13 @@
 				9095F8D728CBB9EC0011DFC5 /* FavouritesPresenter.swift in Sources */,
 				902F02B128CA4C81006BB929 /* SceneDelegate.swift in Sources */,
 				902F02F128CA59EC006BB929 /* HomePresenter.swift in Sources */,
+				9064CC6F28CCBACD0074E698 /* FileHelper.swift in Sources */,
 				902F031028CB6A9E006BB929 /* DateExtension.swift in Sources */,
 				9095F8D928CBBB420011DFC5 /* FavouritesView.swift in Sources */,
 				9095F8DD28CBD37F0011DFC5 /* FavouritesDetailViewController.swift in Sources */,
 				902F02FC28CA75C9006BB929 /* FavouritesViewController.swift in Sources */,
 				9095F8D128CBB6C90011DFC5 /* FavouritesAdapter.swift in Sources */,
 				902F031628CB9F4E006BB929 /* Model.xcdatamodeld in Sources */,
-				902F030828CB23F7006BB929 /* ImageExtension.swift in Sources */,
 				902F030A28CB39FB006BB929 /* Reachability.swift in Sources */,
 				902F02E628CA55DC006BB929 /* Constants.swift in Sources */,
 			);
@@ -651,8 +651,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RL9XJ2DEF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = APOD/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -665,8 +667,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maveric.citi.APOD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.supreethd.APOD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -678,8 +681,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RL9XJ2DEF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = APOD/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -692,8 +697,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maveric.citi.APOD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.supreethd.APOD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
