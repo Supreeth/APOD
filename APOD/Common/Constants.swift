@@ -30,6 +30,7 @@ struct StorageConstants {
     static let titleKey = "title"
     static let mediaTypeKey = "mediaType"
     static let imageDataKey = "imageData"
+    static let urlKey = "url"
 }
 
 struct LocalizeConstants {
@@ -46,9 +47,14 @@ struct ServiceConstants{
 }
 
 struct NibConstants {
-    static let favouriteTableViewCell = "FavouriteTableViewCell"
+    static let favouriteTableViewCell = "FavouriteTableViewCell" 
 }
 
 struct SegueConstants {
     static let showFavouritesDetailViewController = "showFavouritesDetailViewController"
+}
+
+struct AssetsConstant {
+    static let placeHolderImage = "placeholder-image"
+    static let videoPlaceHolderImage = "video-placeholder"
 }

@@ -244,6 +244,7 @@
 		902F02E428CA55AD006BB929 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				90C0746628CDD65E00252663 /* Views */,
 				902F030628CB1DA7006BB929 /* Extensions */,
 				902F02E528CA55DC006BB929 /* Constants.swift */,
 				902F02EB28CA56A7006BB929 /* Localizable.strings */,
@@ -305,6 +306,13 @@
 			isa = PBXGroup;
 			children = (
 				9095F8DF28CBD3BC0011DFC5 /* FavouritesDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90C0746628CDD65E00252663 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Views;
 			sourceTree = "<group>";

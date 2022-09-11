@@ -80,6 +80,8 @@ struct Storage {
         pod.setValue(picture.explanation, forKey: StorageConstants.explanationKey)
         pod.setValue(picture.hdurl, forKey: StorageConstants.hdurlKey)
         pod.setValue(picture.title, forKey: StorageConstants.titleKey)
+        pod.setValue(picture.mediaType, forKey: StorageConstants.mediaTypeKey)
+        pod.setValue(picture.url, forKey: StorageConstants.urlKey)
         appDelegate.saveContext()
     }
     
@@ -103,7 +105,7 @@ struct Storage {
     
     func deleteFromFavourites(_ url:String?){
         let request: NSFetchRequest<POD> = POD.fetchRequest()
-        request.predicate = NSPredicate(format: "hdurl == %@", url ?? "")
+        request.predicate = NSPredicate(format: "url == %@", url ?? "")
        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -122,9 +124,9 @@ struct Storage {
     }
     
     func isFavourite(_ picture:Picture) -> Bool {
-        let query = picture.hdurl
+        let query = picture.url
         let request: NSFetchRequest<POD> = POD.fetchRequest()
-        request.predicate = NSPredicate(format: "hdurl == %@", query ?? "")
+        request.predicate = NSPredicate(format: "url == %@", query ?? "")
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return false

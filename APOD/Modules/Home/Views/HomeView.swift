@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 protocol HomeViewDelegate:NSObjectProtocol {
     func fetchPicture(for date: Date)
@@ -15,11 +16,13 @@ protocol HomeViewDelegate:NSObjectProtocol {
 
 class HomeView: UIView {
 
+    @IBOutlet weak var videoPlayerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var explanationlabel: UILabel!
     @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var webView: WKWebView!
     weak var delegate: HomeViewDelegate?
     private var myActivityIndicator: UIActivityIndicatorView?
     
@@ -46,6 +49,30 @@ class HomeView: UIView {
 
 // MARK: - Extension HomeViewProtocol
 extension HomeView: HomeViewProtocol{
+    ///Plays video from the url in the webview
+    func showVideo(_ picture: Picture) {
+        if let urlString =  picture.url, let url = URL(string: urlString){
+            webView.load(URLRequest(url: url))
+            webView.isHidden = false
+            imageView.isHidden = true
+        }
+    }
+    
+    //Shows image from the url
+    func showImage(_ picture: Picture) {
+        webView.isHidden = true
+        imageView.isHidden = false
+        if let url = picture.hdurl {
+            imageView.setImage(url: url,placeholderImage: UIImage(named: AssetsConstant.placeHolderImage), onSuccess:  { image in
+                if let imageData =  image.jpegData(compressionQuality: 1.0) {
+                    DispatchQueue.main.async {
+                        Storage().storeRecentPicture(picture, imagData: imageData)
+                        self.delegate?.imageDidLoad(with: imageData)
+                    }
+                }
+            })
+        }
+    }
     
     /// This callback is called from presenter when the POD is about to fetch
     func fetchPictureWillStart() {
@@ -61,16 +88,6 @@ extension HomeView: HomeViewProtocol{
     
     /// This callback is called from presenter when the POD fetch is complete
     func fetchPictureDidEnd(picture: Picture) {
-        if let url = picture.hdurl {
-            imageView.setImage(url: url, onSuccess:  { image in
-                if let imageData =  image.jpegData(compressionQuality: 1.0) {
-                    DispatchQueue.main.async {
-                        Storage().storeRecentPicture(picture, imagData: imageData)
-                        self.delegate?.imageDidLoad(with: imageData)
-                    }
-                }
-            })
-        }
         dateLabel.text = picture.date
         titleLabel.text = picture.title
         explanationlabel.text = picture.explanation

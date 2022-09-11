@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import AVKit
 
 class FavouriteTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var podImageView: UIImageView!
     
@@ -24,14 +25,18 @@ class FavouriteTableViewCell: UITableViewCell {
         
         if let image = FileHelper().getImage(with: item.title ?? "") {
             podImageView.image = image
-        } else if let url = item.hdurl {
-            podImageView.setImage(url: url, onSuccess:  { image in
+        } else if let url = item.hdurl, item.mediaType == "image" {
+            podImageView.setImage(url: url,placeholderImage:  UIImage(named: AssetsConstant.placeHolderImage), onSuccess:  { image in
                 if let imageData =  image.jpegData(compressionQuality: 1.0) {
                     DispatchQueue.main.async {
                         FileHelper().save(fileName: item.title ?? "",data: imageData)
                     }
                 }
             })
+        } else if item.mediaType == "video" {
+            podImageView.image = UIImage(named: AssetsConstant.videoPlaceHolderImage)
         }
     }
 }
+
+

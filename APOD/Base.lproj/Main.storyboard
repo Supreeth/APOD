@@ -19,6 +19,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-zf-8RE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
+                                    <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wk6-ea-g2o">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xP-1c-PWp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                         <constraints>
@@ -54,7 +62,11 @@
                                     <constraint firstItem="kol-LE-aap" firstAttribute="trailing" secondItem="kPP-JA-ynj" secondAttribute="trailing" id="V7T-42-q49"/>
                                     <constraint firstItem="kPP-JA-ynj" firstAttribute="top" secondItem="NMR-Ef-xBn" secondAttribute="bottom" constant="21.5" id="VjS-lX-tEe"/>
                                     <constraint firstItem="kol-LE-aap" firstAttribute="leading" secondItem="kPP-JA-ynj" secondAttribute="leading" id="ZCa-8y-4if"/>
+                                    <constraint firstItem="wk6-ea-g2o" firstAttribute="trailing" secondItem="8xP-1c-PWp" secondAttribute="trailing" id="baF-qr-Pzu"/>
                                     <constraint firstAttribute="trailing" secondItem="8xP-1c-PWp" secondAttribute="trailing" id="dBI-dQ-sXV"/>
+                                    <constraint firstItem="wk6-ea-g2o" firstAttribute="bottom" secondItem="8xP-1c-PWp" secondAttribute="bottom" id="eIJ-sb-YJ7"/>
+                                    <constraint firstItem="wk6-ea-g2o" firstAttribute="leading" secondItem="8xP-1c-PWp" secondAttribute="leading" id="kR8-Yl-cee"/>
+                                    <constraint firstItem="wk6-ea-g2o" firstAttribute="top" secondItem="8xP-1c-PWp" secondAttribute="top" id="ne7-jb-gYX"/>
                                     <constraint firstItem="kol-LE-aap" firstAttribute="top" secondItem="kPP-JA-ynj" secondAttribute="bottom" constant="21.5" id="rei-Pr-uke"/>
                                     <constraint firstItem="NMR-Ef-xBn" firstAttribute="top" secondItem="8xP-1c-PWp" secondAttribute="bottom" constant="31" id="wEV-Do-0OP"/>
                                 </constraints>
@@ -88,6 +100,7 @@
                             <outlet property="explanationlabel" destination="kol-LE-aap" id="Fir-Bd-I7J"/>
                             <outlet property="imageView" destination="8xP-1c-PWp" id="kdj-L9-Gxu"/>
                             <outlet property="titleLabel" destination="NMR-Ef-xBn" id="EzQ-sq-OsG"/>
+                            <outlet property="webView" destination="wk6-ea-g2o" id="tp1-Nm-Ikp"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Vn4-G6-g6f"/>
@@ -139,6 +152,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlN-pf-rPB">
                                 <rect key="frame" x="0.0" y="83" width="414" height="725"/>
                                 <subviews>
+                                    <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJn-fx-cqa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="umf-Vg-KvR">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                         <constraints>
@@ -168,12 +189,16 @@
                                     <constraint firstItem="O3W-0K-iM0" firstAttribute="trailing" secondItem="6Lw-3c-BNN" secondAttribute="trailing" id="1FW-3q-M6I"/>
                                     <constraint firstItem="6Lw-3c-BNN" firstAttribute="leading" secondItem="ZlN-pf-rPB" secondAttribute="leading" constant="21" id="1uo-vk-w4K"/>
                                     <constraint firstItem="umf-Vg-KvR" firstAttribute="leading" secondItem="ZlN-pf-rPB" secondAttribute="leading" id="2O5-rp-a8V"/>
+                                    <constraint firstItem="aJn-fx-cqa" firstAttribute="trailing" secondItem="umf-Vg-KvR" secondAttribute="trailing" id="7aY-I9-h0S"/>
                                     <constraint firstItem="O3W-0K-iM0" firstAttribute="top" secondItem="6Lw-3c-BNN" secondAttribute="bottom" constant="21.5" id="9PJ-ut-o0j"/>
+                                    <constraint firstItem="aJn-fx-cqa" firstAttribute="top" secondItem="umf-Vg-KvR" secondAttribute="top" id="AcN-TS-4ys"/>
                                     <constraint firstItem="t69-WU-7Fy" firstAttribute="trailing" secondItem="O3W-0K-iM0" secondAttribute="trailing" id="Dp6-dL-SlM"/>
+                                    <constraint firstItem="aJn-fx-cqa" firstAttribute="bottom" secondItem="umf-Vg-KvR" secondAttribute="bottom" id="K26-IT-dJa"/>
                                     <constraint firstItem="umf-Vg-KvR" firstAttribute="centerX" secondItem="ZlN-pf-rPB" secondAttribute="centerX" id="OLT-J0-2lR"/>
                                     <constraint firstItem="umf-Vg-KvR" firstAttribute="top" secondItem="ZlN-pf-rPB" secondAttribute="top" id="YRC-jc-SVz"/>
                                     <constraint firstItem="O3W-0K-iM0" firstAttribute="leading" secondItem="6Lw-3c-BNN" secondAttribute="leading" id="ZPp-kV-76s"/>
                                     <constraint firstAttribute="bottom" secondItem="t69-WU-7Fy" secondAttribute="bottom" id="ZYa-VR-wai"/>
+                                    <constraint firstItem="aJn-fx-cqa" firstAttribute="leading" secondItem="umf-Vg-KvR" secondAttribute="leading" id="ZeA-7Z-HxC"/>
                                     <constraint firstAttribute="trailing" secondItem="6Lw-3c-BNN" secondAttribute="trailing" constant="21" id="b3w-sh-Ckd"/>
                                     <constraint firstAttribute="trailing" secondItem="umf-Vg-KvR" secondAttribute="trailing" id="bhj-T6-fLn"/>
                                     <constraint firstItem="t69-WU-7Fy" firstAttribute="leading" secondItem="O3W-0K-iM0" secondAttribute="leading" id="twa-HI-ykC"/>
@@ -197,6 +222,7 @@
                             <outlet property="explanationlabel" destination="t69-WU-7Fy" id="IO6-ZF-Jbm"/>
                             <outlet property="imageView" destination="umf-Vg-KvR" id="OaL-Fw-gjg"/>
                             <outlet property="titleLabel" destination="6Lw-3c-BNN" id="xXP-QW-7EN"/>
+                            <outlet property="webView" destination="aJn-fx-cqa" id="1vZ-SR-K0a"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="UPH-NR-YRR"/>

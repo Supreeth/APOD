@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 ///Controller Class to handle and display the Picture of the day
 class HomeViewController: UIViewController {
     
@@ -82,6 +83,7 @@ extension HomeViewController: HomeViewDelegate {
         
         let image = isFavourite ? UIImage(systemName: NavigationConstants.favouriteFillIcon) : UIImage(systemName: NavigationConstants.favouriteIcon)
         navigationItem.rightBarButtonItem?.image = image
+        presenter?.validateMediaType()
     }
 }
 

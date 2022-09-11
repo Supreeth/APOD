@@ -53,7 +53,7 @@ class FavouritesDetailPresenter{
         if isMovingFromParent {
             switch isFavourite {
             case false:
-                Storage().deleteFromFavourites(pod?.hdurl)
+                Storage().deleteFromFavourites(pod?.url)
             default:
                 break
             }

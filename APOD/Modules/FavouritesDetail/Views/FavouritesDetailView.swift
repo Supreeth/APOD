@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import WebKit
 
 class FavouritesDetailView: UIView {
     
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,14 +28,22 @@ extension FavouritesDetailView: FavouritesDetailProtocol {
         
         if let image = FileHelper().getImage(with: pod.title ?? "") {
             imageView.image = image
-        } else if let url = pod.hdurl {
-            imageView.setImage(url: url, onSuccess:  { image in
+        } else if let url = pod.hdurl,pod.mediaType == "image" {
+            imageView.setImage(url: url,placeholderImage: UIImage(named: AssetsConstant.placeHolderImage), onSuccess:  {[weak self] image in
                 if let imageData =  image.jpegData(compressionQuality: 1.0) {
                     DispatchQueue.main.async {
+                        self?.webView.isHidden = true
+                        self?.imageView.isHidden = false
                         FileHelper().save(fileName: pod.title ?? "",data: imageData)
                     }
                 }
             })
+        } else if pod.mediaType == "video" {
+            if let urlString =  pod.url, let url = URL(string: urlString){
+                webView.load(URLRequest(url: url))
+                webView.isHidden = false
+                imageView.isHidden = true
+            }
         }
     }
 }

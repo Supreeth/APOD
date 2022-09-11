@@ -16,7 +16,7 @@ class FavouritesViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = LocalizeConstants.favouriteScreenTitle
+        self.title = NSLocalizedString(LocalizeConstants.favouriteScreenTitle, comment: "")
         setup()
     }
     
@@ -34,6 +34,7 @@ class FavouritesViewController: UIViewController {
         let view = (self.view as? FavouritesView) ?? FavouritesView()
         presenter?.attachView(view: view)
         adapter.delegate = self
+        setupTableView()
     }
     
     /**

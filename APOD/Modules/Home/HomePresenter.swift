@@ -11,12 +11,21 @@ import Foundation
 protocol HomeViewProtocol: NSObjectProtocol {
     func fetchPictureDidEnd(picture: Picture)
     func fetchPictureWillStart()
+    func showVideo(_ picture: Picture)
+    func showImage(_ picture: Picture)
 }
 
 ///Call backs to view contreoller
 protocol HomePresenterDelegate: NSObjectProtocol {
     func isFavourite()
     func isNotFavourite()
+}
+
+enum MediaType: String {
+    case video
+    case image
+    
+    var mediaType: String { rawValue.uppercased() }
 }
 
 
@@ -98,7 +107,7 @@ class HomePresenter {
         case true:
             delegate?.isNotFavourite()
             //Delete from the saved list
-            Storage().deleteFromFavourites(picture?.hdurl)
+            Storage().deleteFromFavourites(picture?.url)
         default:
             delegate?.isFavourite()
             
@@ -108,6 +117,19 @@ class HomePresenter {
                 //Add to favourite list
                 Storage().addToFavourites(picture)
             }
+        }
+    }
+    
+    ///Valiodates the media type and return callback to homview accordingly
+    func validateMediaType() {
+        guard let picture = picture else {
+            return
+        }
+        switch picture.mediaType {
+        case MediaType.video.rawValue:
+            homeViewProtocol?.showVideo(picture)
+        default:
+            homeViewProtocol?.showImage(picture)
         }
     }
 }
