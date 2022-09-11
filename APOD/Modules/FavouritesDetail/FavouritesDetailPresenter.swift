@@ -22,6 +22,10 @@ class FavouritesDetailPresenter{
     weak var delegate: FavouritesDetailPresenterDelegate?
     var isFavourite: Bool = true
     
+    /**
+        This function attches the presenter with the view.
+        -  FavouritesDetailView is confirmed to FavouritesDetailProtocol
+     */
     func attachView(view: FavouritesDetailProtocol) {
         favouritesDetailProtocol = view
         if let pod = pod {
@@ -29,6 +33,7 @@ class FavouritesDetailPresenter{
         }
     }
     
+    ///This function  is called from Controller when the favourite button is tapped
     func favouriteDidTap() {
         switch isFavourite {
         case true:
@@ -39,6 +44,11 @@ class FavouritesDetailPresenter{
         isFavourite.toggle()
     }
     
+    /**
+        This function will be called before FavouriteDetailViewcontroller is popped fro the navigatino stack
+         -  If favourite button is selected/filled - Retain the item in the favourites list
+         -  If favourite button is not selected - Delete the item from the favourite list
+     */
     func willPop(_ isMovingFromParent:Bool) {
         if isMovingFromParent {
             switch isFavourite {

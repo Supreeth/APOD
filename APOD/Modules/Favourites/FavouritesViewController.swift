@@ -13,11 +13,10 @@ class FavouritesViewController: UIViewController {
     let adapter = FavouritesAdapter()
     private var presenter: FavouritesPresenter?
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.title = "Favourites"
+        self.title = LocalizeConstants.favouriteScreenTitle
         setup()
     }
     
@@ -27,22 +26,36 @@ class FavouritesViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func setup() {
+    // MARK: - Private Methods
+    // MARK: Setup Methods
+    ///Views and Presenters are attached and intial setup is done in this function
+    private func setup() {
         presenter = FavouritesPresenter()
         let view = (self.view as? FavouritesView) ?? FavouritesView()
         presenter?.attachView(view: view)
         adapter.delegate = self
+    }
+    
+    /**
+        Setting up the table view in this function
+        -   Tableview delegates and data soure are handled in FavouritesAdapter
+     */
+    private func setupTableView(){
         tableView.delegate = adapter
         tableView.dataSource = adapter
-        let nib = UINib(nibName: "FavouriteTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "FavouriteTableViewCell")
+        let nib = UINib(nibName: NibConstants.favouriteTableViewCell, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: NibConstants.favouriteTableViewCell)
         tableView.rowHeight = UITableView.automaticDimension
     }
     
     
     // MARK: - Navigation
+    /**
+        Preparing before the app is navigated to Favourites detail view
+        -   API fetch wont happen for favourites, POD model is passed to next screen
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showFavouritesDetailViewController" {
+        if segue.identifier == SegueConstants.showFavouritesDetailViewController {
             if let viewController = segue.destination as? FavouritesDetailViewController {
                 viewController.presenter.pod = presenter?.itemSelected
             }
@@ -50,9 +63,10 @@ class FavouritesViewController: UIViewController {
     }
 }
 
+// MARK: - FavouritesAdapterDelegate Methods
 extension FavouritesViewController: FavouritesAdapterDelegate {
     func didTap(_ item: POD) {
         presenter?.itemSelected = item
-        performSegue(withIdentifier: "showFavouritesDetailViewController", sender: self)
+        performSegue(withIdentifier: SegueConstants.showFavouritesDetailViewController, sender: self)
     }
 }

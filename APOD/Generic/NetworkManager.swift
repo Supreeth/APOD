@@ -10,6 +10,8 @@ import Foundation
 enum HttpMethod: String {
     case get
     case post
+    case delete
+    case put
     
     var method: String { rawValue.uppercased() }
 }
@@ -21,7 +23,11 @@ enum Errors: Error {
 }
 
 class NetworkManager{
-    
+    /**
+        This function will fetch the data from the Server
+         - httpMethod - One if the HttpMethod enum
+         - url - URLRequest is generated base on the URL received in paramater
+     */
     func request<T: Decodable>(fromURL url: URL,
                                httpMethod: HttpMethod = .get,
                                completion: @escaping (Result<T, Error>) -> Void) {

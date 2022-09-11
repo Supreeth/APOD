@@ -24,6 +24,10 @@ class HomeView: UIView {
     private var myActivityIndicator: UIActivityIndicatorView?
     
     // MARK: Setup Methods
+    /**
+        Setup the view and it's subviews
+         - If network not available, loading from Cache
+     */
     func setup() {
         datePickerView.delegate = self
         if !Reachability.sharedInstance.isNetworkAvailable() {
@@ -40,9 +44,10 @@ class HomeView: UIView {
     }
 }
 
-// MARK: Extension HomeViewProtocol
+// MARK: - Extension HomeViewProtocol
 extension HomeView: HomeViewProtocol{
     
+    /// This callback is called from presenter when the POD is about to fetch
     func fetchPictureWillStart() {
         guard var myActivityIndicator = myActivityIndicator else {
             return
@@ -54,6 +59,7 @@ extension HomeView: HomeViewProtocol{
         addSubview(myActivityIndicator)
     }
     
+    /// This callback is called from presenter when the POD fetch is complete
     func fetchPictureDidEnd(picture: Picture) {
         if let url = picture.hdurl {
             imageView.setImage(url: url, onSuccess:  { image in
@@ -74,7 +80,7 @@ extension HomeView: HomeViewProtocol{
     }
 }
 
-// MARK: Extension DatePickerDelegate
+// MARK: - Extension DatePickerDelegate
 extension HomeView: DatePickerDelegate{
     func doneButtonTapped(date: Date) {
         delegate?.fetchPicture(for: date)

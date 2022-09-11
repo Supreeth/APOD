@@ -7,6 +7,7 @@
 
 import Foundation
 
+///Model for the Prcture of the day
 struct Picture: Codable {
     
     let copyright:String?

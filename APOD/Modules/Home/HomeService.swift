@@ -8,7 +8,10 @@
 import Foundation
 
 class HomeService {
-    
+    /**
+        This function prepares the request from the URL and performs the API fetch request
+        - Returns success callback on successful fetch completion
+     */
     func fetchPicture(for url: URL? = nil,
                       onSuccess successCallback: ((_ picture: Picture) -> Void)?,
                       onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {

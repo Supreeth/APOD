@@ -34,6 +34,7 @@ struct StorageConstants {
 
 struct LocalizeConstants {
     static let homeScreenTitle = "Home screen title"
+    static let favouriteScreenTitle = "Favourite screen title"
     static let couldNotDelete = "Could not delete."
     static let couldNotFetch = "Could not delete."
 }
@@ -42,4 +43,12 @@ struct LocalizeConstants {
 struct ServiceConstants{
     static let apiKey = "api_key"
     static let dateKey = "date"
+}
+
+struct NibConstants {
+    static let favouriteTableViewCell = "FavouriteTableViewCell"
+}
+
+struct SegueConstants {
+    static let showFavouritesDetailViewController = "showFavouritesDetailViewController"
 }

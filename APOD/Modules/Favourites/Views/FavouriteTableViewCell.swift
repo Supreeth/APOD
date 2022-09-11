@@ -28,16 +28,10 @@ class FavouriteTableViewCell: UITableViewCell {
             podImageView.setImage(url: url, onSuccess:  { image in
                 if let imageData =  image.jpegData(compressionQuality: 1.0) {
                     DispatchQueue.main.async {
-                        FileHelper().save(fileName: item.title ?? "",imageData: imageData)
+                        FileHelper().save(fileName: item.title ?? "",data: imageData)
                     }
                 }
             })
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

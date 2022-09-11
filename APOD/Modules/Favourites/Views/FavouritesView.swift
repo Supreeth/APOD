@@ -8,10 +8,7 @@
 import UIKit
 
 class FavouritesView: UIView {
-
-
 }
 
 extension FavouritesView: FavouritesProtocol{
-    
 }

@@ -15,6 +15,9 @@ class FavouritesDetailView: UIView {
     @IBOutlet weak var explanationlabel: UILabel!
 }
 
+// MARK: - Extension FavouritesDetailProtocol
+
+///These callbacks will be called from Presenter
 extension FavouritesDetailView: FavouritesDetailProtocol {
     func loadView(with pod: POD) {
         dateLabel.text = pod.date
@@ -27,7 +30,7 @@ extension FavouritesDetailView: FavouritesDetailProtocol {
             imageView.setImage(url: url, onSuccess:  { image in
                 if let imageData =  image.jpegData(compressionQuality: 1.0) {
                     DispatchQueue.main.async {
-                        FileHelper().save(fileName: pod.title ?? "",imageData: imageData)
+                        FileHelper().save(fileName: pod.title ?? "",data: imageData)
                     }
                 }
             })

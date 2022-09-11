@@ -7,8 +7,14 @@
 
 import UIKit
 
+///This Class is used to download and cache the images for a session
 class ImageDownloader: NSObject {
     
+    /**
+        This function is used to download the images from the server
+         -  If image is avaiable in NSCache, this function will retrieve from cache and return
+         -  If image not avaialbe in NSCache, image will be downloaded and returned back
+     */
     func downloadAndCacheImage(url:String,
                                onSuccess:@escaping (_ image:UIImage?, _ url: String) -> Void,
                                onFailure:@escaping (_ error:Error?) -> Void) -> Void {

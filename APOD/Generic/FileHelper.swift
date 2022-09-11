@@ -8,11 +8,16 @@
 import UIKit
 
 struct FileHelper {
-    func save(fileName: String, imageData: Data?) {
+    /**
+        Data will get stored in the document directory
+        - fileName - Name of the file in which data to be stored
+        - imageData - Data to be stored in the file
+     */
+    func save(fileName: String, data: Data?) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let url = documentsDirectory.appendingPathComponent(fileName)
         
-        if let data = imageData {
+        if let data = data {
             do {
                 try data.write(to: url) // Writing an Image in the Documents Directory
             } catch {
@@ -21,6 +26,11 @@ struct FileHelper {
         }
     }
     
+    /**
+        Retrieves the image from the document directoyr
+        - fileName - Name of the file in which image is stored
+        - Returns back UIImage
+     */
     func getImage(with fileName: String) -> UIImage? {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let url = documentsDirectory.appendingPathComponent(fileName)
