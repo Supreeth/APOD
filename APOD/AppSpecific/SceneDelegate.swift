@@ -56,7 +56,7 @@ extension SceneDelegate: ReachabilityDelegate {
         print("networkStatusChanged called - \(isConnected)")
         if !isConnected {
             DispatchQueue.main.async {
-                self.window?.rootViewController?.presentAlert(withTitle: NSLocalizedString(LocalizeConstants.networkError, comment: ""), message: NSLocalizedString(LocalizeConstants.noNetworkConnection, comment: ""), actions: ["Retry" : .default])
+                self.window?.rootViewController?.presentAlert(withTitle: NSLocalizedString(LocalizeConstants.networkError, comment: ""), message: NSLocalizedString(LocalizeConstants.noNetworkConnection, comment: ""), actions: [NSLocalizedString(LocalizeConstants.ok, comment: "") : .default])
             }
         }
     }

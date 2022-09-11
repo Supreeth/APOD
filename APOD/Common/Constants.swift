@@ -40,6 +40,7 @@ struct LocalizeConstants {
     static let couldNotFetch = "Could not delete."
     static let noNetworkConnection = "NoNetworkConnection"
     static let networkError = "Network Error"
+    static let ok = "Ok"
 }
 
 
