@@ -10,3 +10,5 @@
 "Favourite screen title" = "Favourites";
 "Could not delete." = "Could not delete.";
 "Could not fetch." = "Could not fetch.";
+"Network Error" = "Network Error";
+"NoNetworkConnection" = "Please check your internet connection."

@@ -54,5 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate: ReachabilityDelegate {
     func networkStatusChanged(isConnected: Bool) {
         print("networkStatusChanged called - \(isConnected)")
+        if !isConnected {
+            DispatchQueue.main.async {
+                self.window?.rootViewController?.presentAlert(withTitle: NSLocalizedString(LocalizeConstants.networkError, comment: ""), message: NSLocalizedString(LocalizeConstants.noNetworkConnection, comment: ""), actions: ["Retry" : .default])
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@
 		9095F8DD28CBD37F0011DFC5 /* FavouritesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095F8DC28CBD37F0011DFC5 /* FavouritesDetailViewController.swift */; };
 		9095F8E028CBD3BC0011DFC5 /* FavouritesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095F8DF28CBD3BC0011DFC5 /* FavouritesDetailView.swift */; };
 		9095F8E428CBD3F80011DFC5 /* FavouritesDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095F8E328CBD3F80011DFC5 /* FavouritesDetailPresenter.swift */; };
+		90C074A628CE13AB00252663 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C074A528CE13AB00252663 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		9095F8DC28CBD37F0011DFC5 /* FavouritesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailViewController.swift; sourceTree = "<group>"; };
 		9095F8DF28CBD3BC0011DFC5 /* FavouritesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailView.swift; sourceTree = "<group>"; };
 		9095F8E328CBD3F80011DFC5 /* FavouritesDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailPresenter.swift; sourceTree = "<group>"; };
+		90C074A528CE13AB00252663 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			children = (
 				902F02FE28CB1454006BB929 /* ImageViewExtension.swift */,
 				902F030F28CB6A9E006BB929 /* DateExtension.swift */,
+				90C074A528CE13AB00252663 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				902F02AF28CA4C81006BB929 /* AppDelegate.swift in Sources */,
 				9095F8E428CBD3F80011DFC5 /* FavouritesDetailPresenter.swift in Sources */,
 				902F02FF28CB1454006BB929 /* ImageViewExtension.swift in Sources */,
+				90C074A628CE13AB00252663 /* UIViewControllerExtension.swift in Sources */,
 				902F030C28CB5260006BB929 /* DatePickerView.swift in Sources */,
 				902F02F728CA6288006BB929 /* NetworkManager.swift in Sources */,
 				9095F8E028CBD3BC0011DFC5 /* FavouritesDetailView.swift in Sources */,

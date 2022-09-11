@@ -38,6 +38,8 @@ struct LocalizeConstants {
     static let favouriteScreenTitle = "Favourite screen title"
     static let couldNotDelete = "Could not delete."
     static let couldNotFetch = "Could not delete."
+    static let noNetworkConnection = "NoNetworkConnection"
+    static let networkError = "Network Error"
 }
 
 
